@@ -27,9 +27,9 @@ model Link {
   type        LinkType
   active      Boolean
   thumbnail   String?
-  url         String
-  embed       Boolean
-  User        User?     @relation(fields: [userId], references: [id])
+  url         String?
+  embed       Boolean?
+  user        User?     @relation(fields: [userId], references: [id])
   userId      String?
   sublinkId   String?
   subLink     Link?     @relation("SubLinks", fields: [sublinkId], references: [id])

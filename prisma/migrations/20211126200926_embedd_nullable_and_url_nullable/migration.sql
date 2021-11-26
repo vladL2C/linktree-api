@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Link" ALTER COLUMN "url" DROP NOT NULL,
+ALTER COLUMN "embed" DROP NOT NULL;
