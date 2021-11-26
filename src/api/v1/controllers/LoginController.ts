@@ -18,7 +18,7 @@ export const login = async (req: CustomRequest, res: Response) => {
   const { email, password } = req.body;
 
   try {
-    const user = await prisma.user.findUnique({ where: { email }, include: { contact: true, address: true } });
+    const user = await prisma.user.findUnique({ where: { email } });
 
     if (!user) return res.status(HttpStatusCodes.BAD_REQUEST).json(badRequest([{ msg: 'Invalid credentials' }]));
 
