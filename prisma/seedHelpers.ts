@@ -54,21 +54,21 @@ export const generateMusicLinks = () => [
     title: 'my first link',
     type: LinkType.MusicPlayer,
     active: true,
-    url: 'https://hasura.io/',
+    url: 'https://music.youtube.com/watch?v=342Msc1FQUU',
     embed: false,
   },
   {
     title: 'my second link',
     type: LinkType.MusicPlayer,
     active: true,
-    url: 'https://hasura.io/',
+    url: 'https://music.youtube.com/watch?v=342Msc1FQUU',
     embed: false,
   },
   {
     title: 'my third link',
     type: LinkType.MusicPlayer,
     active: true,
-    url: 'https://hasura.io/',
+    url: 'https://music.youtube.com/watch?v=342Msc1FQUU',
     embed: true,
   },
 ];
@@ -79,7 +79,7 @@ export const generateUser = async () => {
   const hashedPassword = await bcrypt.hash(password, salt);
 
   const user = {
-    email: 'vlad@example.com',
+    email: 'test@example.com',
     password: hashedPassword,
     firstName: 'Bat',
     lastName: 'Man',

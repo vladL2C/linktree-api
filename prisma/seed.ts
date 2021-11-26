@@ -16,7 +16,12 @@ const seedDatabase = async () => {
 };
 
 const main = async () => {
-  await seedDatabase();
+  // await seedDatabase();
+  const links = await prisma.link.findMany({
+    where: { userId: 'b7f2377b-4baf-42b6-b3bf-c9cfb1105b3e' },
+  });
+
+  console.log(links);
 };
 
 main()
