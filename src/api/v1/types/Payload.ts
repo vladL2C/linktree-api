@@ -4,4 +4,4 @@
  * token signing (jwt.sign) and token verification (jwt.verify).
  * @param userId:string
  */
-export type Payload = { userId: number };
+export type Payload = { userId: string };

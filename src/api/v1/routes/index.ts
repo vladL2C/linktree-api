@@ -15,4 +15,4 @@ publicRouter.use(`${BASE_API_URL}/register`, registerRouter);
 
 // authenticated routes
 authenticatedRouter.use(authenticate);
-linksRouter.use(`${BASE_API_URL}/links`, linksRouter);
+authenticatedRouter.use(`${BASE_API_URL}/links`, linksRouter);

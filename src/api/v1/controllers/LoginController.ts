@@ -25,7 +25,6 @@ export const login = async (req: CustomRequest, res: Response) => {
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) return res.status(HttpStatusCodes.BAD_REQUEST).json(badRequest([{ msg: 'Invalid credentials' }]));
-    delete user.password;
 
     const payload = {
       user,

@@ -12,7 +12,7 @@ const allowedOrigins = ['http://localhost:3000'];
 app.use(cors({ origin: allowedOrigins, credentials: true }));
 
 // Express configuration
-app.set('port', process.env.PORT || 5000);
+app.set('port', process.env.PORT || 8000);
 app.use(cookieParser());
 app.use(urlencoded({ extended: false }));
 app.use(json());

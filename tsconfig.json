@@ -10,7 +10,8 @@
     "baseUrl": ".",
     "paths": {
       "*": ["node_modules/*", "src/api/v1/types/*"]
-    }
+    },
+    "strictNullChecks": true
   },
-  "include": ["src/**/*", "config", "tests/services"]
+  "include": ["src/**/*", "config", "tests"]
 }
