@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { loginRouter } from './login';
 import { registerRouter } from './register';
 import { authenticate } from '../middleware/auth';
+import { linksRouter } from './link';
 
 export const publicRouter = Router();
 export const authenticatedRouter = Router();
@@ -14,3 +15,4 @@ publicRouter.use(`${BASE_API_URL}/register`, registerRouter);
 
 // authenticated routes
 authenticatedRouter.use(authenticate);
+linksRouter.use(`${BASE_API_URL}/links`, linksRouter);
