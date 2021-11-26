@@ -2,6 +2,10 @@ import bcrypt from 'bcryptjs';
 import { LinkType, ShowStatus, Platform } from '@prisma/client';
 import faker from 'faker';
 
+/**
+ * @todo Separate this into separate mocks folder can be re used for unit testing
+ */
+
 const generateShow = () => ({
   status: ShowStatus.OnSale,
   venue: faker.lorem.word(),
