@@ -31,7 +31,7 @@ npm run db:migrate
 - Seed database with data
 
 ```
-npx prisma db seed --preview-feature
+npx prisma db seed
 or
 npm run db:seed
 ```
@@ -39,7 +39,7 @@ npm run db:seed
 - reset database
 
 ```
-npx prisma db seed --preview-feature
+npx prisma migrate reset
 or
 npm run db:reset
 ```
