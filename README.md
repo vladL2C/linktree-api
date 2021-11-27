@@ -56,7 +56,7 @@ npm run dev
 npm run start
 ```
 
-Finally, navigate to `http://localhost:5000/` and you should see the API running!
+Finally, navigate to `http://localhost:8000/` and you should see the API running!
 
 ### CI
 
