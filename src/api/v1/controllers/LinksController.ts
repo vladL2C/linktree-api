@@ -7,6 +7,7 @@ import { ok, badRequest } from '../../../helpers/JSONAPIResponse';
 
 /**
  * @todo Add JSON Serializers and deserializers
+ * @todo conform to the JSON API Standards {@link https://jsonapi.org/} or try your best to anways :D
  */
 
 /**
