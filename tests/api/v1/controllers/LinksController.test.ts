@@ -3,14 +3,16 @@ import { LinkType } from '@prisma/client';
 import * as Controller from '../../../../src/api/v1/controllers/LinksController';
 import { prisma } from '../../../../config/database';
 
-const req = getMockReq({ userId: '123' }) as any;
 const { res, mockClear } = getMockRes() as any;
+
 beforeEach(() => {
   mockClear();
+  jest.clearAllMocks();
 });
 
-describe('LinksController', () => {
+describe('GET LinksController', () => {
   it('should return links', async () => {
+    const req = getMockReq({ userId: '123' }) as any;
     const links = [
       {
         id: '123',
@@ -33,4 +35,21 @@ describe('LinksController', () => {
 
     expect(res.json).toBeCalledWith({ status: 200, statusMessage: 'success', data: { links } });
   });
+
+  it('throws error', async () => {
+    const req = getMockReq({ userId: '123' }) as any;
+
+    jest.spyOn(prisma.link, 'findMany').mockImplementationOnce(() => {
+      throw new Error('error');
+    });
+
+    const response = await Controller.getLinks(req, res);
+
+    console.log('wtf does it return', response);
+    expect(response).toBe('error');
+  });
+});
+
+describe('POST linksController', () => {
+  it('creates link', () => {});
 });

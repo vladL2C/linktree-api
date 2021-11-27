@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getLinks } from '../controllers/LinksController';
+import { getLinks, createLink } from '../controllers/LinksController';
 
 const { query } = require('express-validator/check');
 
@@ -23,3 +23,4 @@ const validations = [
 ];
 
 linksRouter.get('', validations, getLinks);
+linksRouter.post('', createLink);

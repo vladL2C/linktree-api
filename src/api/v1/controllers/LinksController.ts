@@ -5,6 +5,11 @@ import { CustomRequest } from '../types/Request';
 import { prisma } from '../../../../config/database';
 import { ok, badRequest } from '../../../helpers/JSONAPIResponse';
 
+/**
+ * @todo abstract these filter types to its own domain space
+ * look at adding global filters for other endpoints
+ */
+
 type Filters = {
   sort: {
     dateCreated: 'asc' | 'desc';
@@ -42,6 +47,9 @@ export const getLinks = async (req: CustomRequest, res: Response) => {
     /**
      * @todo I would generally opt for using a logger and send these logs to SumoLogic or Datadog whatever thirdparty we are using
      */
-    console.log(error);
+    // Logger.log({meaningful: logs});
+    return 'error';
   }
 };
+
+export const createLink = (req: CustomRequest, res: Response) => {};
