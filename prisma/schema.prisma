@@ -45,9 +45,10 @@ model Show {
   status    ShowStatus
   venue     String
   location  String
-  date      DateTime   @default(now())
+  date      DateTime
   link      Link       @relation(fields: [linkId], references: [id])
   linkId    String     @unique
+  createdAt DateTime   @default(now())
   updatedAt DateTime?  @updatedAt
 }
 

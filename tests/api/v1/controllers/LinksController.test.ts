@@ -45,11 +45,31 @@ describe('GET LinksController', () => {
 
     const response = await Controller.getLinks(req, res);
 
-    console.log('wtf does it return', response);
     expect(response).toBe('error');
   });
 });
 
 describe('POST linksController', () => {
-  it('creates link', () => {});
+  it('creates link', async () => {
+    const req = getMockReq({ userId: '123' }) as any;
+    const link = {
+      id: '123',
+      title: 'my first classic link',
+      type: LinkType.Classic,
+      active: true,
+      url: 'https://hasura.io/',
+      embed: false,
+      userId: '123',
+      thumbnail: null,
+      dateCreated: new Date(),
+      updatedAt: null,
+      sublinkId: null,
+    };
+
+    jest.spyOn(prisma.link, 'create').mockResolvedValueOnce(link);
+
+    await Controller.createLink(req, res);
+
+    expect(res.json).toBeCalledWith({ status: 200, statusMessage: 'success', data: { link } });
+  });
 });

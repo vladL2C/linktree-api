@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { getLinks, createLink } from '../controllers/LinksController';
+import { getLinks, createLink, createMusicLink, createShowLink } from '../controllers/LinksController';
 
 const { query } = require('express-validator/check');
 
@@ -24,3 +24,5 @@ const validations = [
 
 linksRouter.get('', validations, getLinks);
 linksRouter.post('', createLink);
+linksRouter.post('/show', createShowLink);
+linksRouter.post('/music', createMusicLink);

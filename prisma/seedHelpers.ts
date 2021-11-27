@@ -10,6 +10,7 @@ const generateShow = () => ({
   status: ShowStatus.OnSale,
   venue: faker.lorem.word(),
   location: faker.address.streetAddress(),
+  date: new Date(),
 });
 
 const generateMusic = () => ({
