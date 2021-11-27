@@ -44,7 +44,7 @@ const seedDatabase = async () => {
 
   const [user, musicLink, showLink] = await Promise.all([createUser(), parentMusicLink, parentShowLink]);
 
-  const createdLinks = [];
+  const createdLinks: Link[] = [];
 
   for (const link of linkData()) {
     createdLinks.push(await prisma.link.create({ data: link }));
@@ -54,7 +54,7 @@ const seedDatabase = async () => {
   const showLinkIds = createdLinks.filter(link => link.type === LinkType.Show).map(link => ({ id: link.id }));
 
   await Promise.all([
-    connectLinksToUser(user.id, createdLinks),
+    connectLinksToUser(user.id, [...createdLinks, musicLink, showLink]),
     connectParentLinkToChildren(musicLink.id, musicLinkIds),
     connectParentLinkToChildren(showLink.id, showLinkIds),
   ]);

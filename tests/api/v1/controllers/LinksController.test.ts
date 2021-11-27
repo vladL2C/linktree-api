@@ -31,6 +31,6 @@ describe('LinksController', () => {
 
     await Controller.getLinks(req, res);
 
-    expect(res.json).toBeCalledWith({ success: true, data: { links } });
+    expect(res.json).toBeCalledWith({ status: 200, statusMessage: 'success', data: { links } });
   });
 });
