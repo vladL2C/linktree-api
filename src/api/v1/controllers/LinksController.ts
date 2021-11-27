@@ -1,5 +1,5 @@
 import { Response } from 'express';
-import { validationResult } from 'express-validator/check';
+import { validationResult } from 'express-validator';
 import HttpStatusCodes from 'http-status-codes';
 import { CustomRequest } from '../types/Request';
 import { prisma } from '../../../../config/database';

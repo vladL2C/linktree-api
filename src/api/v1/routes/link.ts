@@ -1,7 +1,6 @@
 import { Router } from 'express';
+import { query } from 'express-validator';
 import { getLinks, createLink, createMusicLink, createShowLink } from '../controllers/LinksController';
-
-const { query } = require('express-validator/check');
 
 export const linksRouter = Router();
 

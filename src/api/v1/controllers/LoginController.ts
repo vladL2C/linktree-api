@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs';
-import { validationResult } from 'express-validator/check';
+import { validationResult } from 'express-validator';
 import HttpStatusCodes from 'http-status-codes';
 import { Response } from 'express';
 import { CustomRequest } from '../types/Request';
