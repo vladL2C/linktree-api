@@ -101,6 +101,7 @@ export const generateUser = async () => {
   const hashedPassword = await bcrypt.hash(password, salt);
 
   const user = {
+    id: 'e92a7dfd-0d8a-405e-9c79-ef8b10069298',
     email: 'test@example.com',
     password: hashedPassword,
     firstName: 'Bat',

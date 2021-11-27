@@ -65,12 +65,17 @@ export const getLinks = async (req: CustomRequest, res: Response) => {
  * since I have structured it towards self referential association Parent -> Child Links
  */
 export const createLink = async (req: CustomRequest, res: Response) => {
+  /**
+   * @todo Validate user exists can just use req.userId but in case we want to explicitly pass it in then need to rethink how we do this just depends on the auth model
+   * @todo e.g check jwt access token
+   */
+
   try {
     const request = req.body;
     const link = await prisma.link.create({ data: request });
     res.status(201).json(ok({ link }));
   } catch (error) {
-    // TODO: logger.log(error)
+    console.log(error);
     return 'errrr';
   }
 };

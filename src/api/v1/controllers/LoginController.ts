@@ -25,7 +25,7 @@ export const login = async (req: CustomRequest, res: Response) => {
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) return res.status(HttpStatusCodes.BAD_REQUEST).json(badRequest([{ msg: 'Invalid credentials' }]));
-
+    // this is where serializers and dto's come in handy we dont want to send password to clients even if its hashed...
     const payload = {
       user,
     };
