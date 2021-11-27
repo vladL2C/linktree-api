@@ -23,8 +23,8 @@ type Filters = {
 };
 
 /**
- * @todo Controller has a lot going on I would abstract out filtering e.g we should be able to do all types of filter based on properties
- * when the controller does get too "fat" we should look at abstracting out into a service layer to handle business logic it seems okayish right now
+ * @todo Controller action has a lot going on I would abstract out filtering e.g we should be able to do all types of filter based on properties
+ * when the method does get too "fat" we should look at abstracting out into a service layer to handle business logic it seems okayish right now
  */
 
 export const getLinks = async (req: CustomRequest, res: Response) => {
