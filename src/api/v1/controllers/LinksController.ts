@@ -37,6 +37,7 @@ export const getLinks = async (req: CustomRequest, res: Response) => {
 
   const { sort } = req.query as Filters;
 
+  // went for a filter incase we want flat structure and don't want the sublinks to be included and can let clients handle it anyway they like
   const includeSublinks = req.query.include === 'subLinks';
 
   try {
