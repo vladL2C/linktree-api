@@ -632,6 +632,6 @@ Simple JWT authentication after setting up the project and running the seed comm
   - end to end tests for the api once its deployed hit the routes.
   - Much more validation espessially around the POST request routes.
   - Serialization and Deserialization to be with JSON API SPEC
-  - Creating the links and sublinks I beleive can be improved we can handle it with the same controller and abstract away the meta data use a service layer to do some business logic and data processing.
+  - Creating the links and sublinks I believe can be improved we can handle it with the same controller and abstract away the meta data use a service layer to do some business logic and data processing.
   - Timezones definately need to be considered
   - USE DOCKER for db setup as it is a bit admin but if you're on mac its super simple to use the mentioned Postgresql on MAC [Postgresql](https://www.postgresql.org/download/)
