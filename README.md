@@ -171,9 +171,9 @@ Simple JWT authentication after setting up the project and running the seed comm
 - GET localhost:8000/api/v1/links
 - QUERY PARAMETERS
 
-  - userId
-  - sort[dateCreated]=asc | desc
-  - include=subLinks
+  - userId (required)
+  - sort[dateCreated]=asc | desc (optional)
+  - include=subLinks (optional)
 
 - Example request `localhost:8000/api/v1/links?userId=e92a7dfd-0d8a-405e-9c79-ef8b10069298&sort[dateCreated]=asc&include=subLinks`
 
