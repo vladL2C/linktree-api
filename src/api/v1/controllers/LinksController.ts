@@ -41,9 +41,15 @@ export const getLinks = async (req: CustomRequest, res: Response) => {
   // went for a filter incase we want flat structure and don't want the sublinks to be included and can let clients or consuming services handle it anyway they like
   const includeSublinks = req.query.include === 'subLinks';
 
+  /**
+   * @todo abstract query construction to a service layer
+   * this where clause will prevent us from returning sublinks in the response and instead return the parent child and any other link that doesn't have a parent
+   */
+  const where = includeSublinks ? { userId: userId as string, sublinkId: null } : { userId: userId as string };
+
   try {
     const links = await prisma.link.findMany({
-      where: { userId: userId as string },
+      where,
       orderBy: { ...sort },
       include: includeSublinks ? { subLinks: { include: { show: true, music: true } } } : undefined,
     });
