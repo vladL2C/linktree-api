@@ -58,6 +58,10 @@ npm run start
 
 Finally, navigate to `http://localhost:5000/` and you should see the API running!
 
+### CI
+
+- used github actions to run linters and automated tests
+
 # Database Schema
 
 - opted for self referential association where a link can belong to another link
