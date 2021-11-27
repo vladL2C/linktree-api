@@ -65,11 +65,6 @@ export const getLinks = async (req: CustomRequest, res: Response) => {
  * since I have structured it towards self referential association Parent -> Child Links
  */
 export const createLink = async (req: CustomRequest, res: Response) => {
-  /**
-   * @todo Validate user exists can just use req.userId but in case we want to explicitly pass it in then need to rethink how we do this just depends on the auth model
-   * @todo e.g check jwt access token
-   */
-
   try {
     const request = req.body;
     const link = await prisma.link.create({ data: request });
@@ -89,10 +84,7 @@ export const createShowLink = async (req: CustomRequest, res: Response) => {
   try {
     const { sublinkId, userId, type, title, active, url, embed } = req.body;
     const { show } = req.body;
-    /**
-     * @todo Figure out how to actually return the child thats being created aswell this will make the return object nicer than passing back the request
-     * we could probably just do two spearate queries and return the two objects i dont think there is any performance gain by having link create the show association
-     */
+
     const link = await prisma.link.create({
       data: {
         sublinkId,
@@ -104,9 +96,10 @@ export const createShowLink = async (req: CustomRequest, res: Response) => {
         embed,
         show: { create: { ...show, date: new Date(show.date) } },
       },
+      include: { show: true },
     });
 
-    res.status(201).json(ok({ link, show }));
+    res.status(201).json(ok({ link }));
   } catch (error) {
     console.log(error);
     return 'errrr';
@@ -122,10 +115,7 @@ export const createMusicLink = async (req: CustomRequest, res: Response) => {
   try {
     const { sublinkId, userId, type, title, active, url, embed } = req.body;
     const { music } = req.body;
-    /**
-     * @todo Figure out how to actually return the child thats being created aswell this will make the return object nicer than passing back the request
-     * we could probably just do two spearate queries and return the two objects i dont think there is any performance gain by having link create the music association
-     */
+
     const link = await prisma.link.create({
       data: {
         sublinkId,
@@ -137,6 +127,7 @@ export const createMusicLink = async (req: CustomRequest, res: Response) => {
         embed,
         music: { create: music },
       },
+      include: { music: true },
     });
 
     res.status(201).json(ok({ link, music }));
