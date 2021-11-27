@@ -61,6 +61,7 @@ export const getLinks = async (req: CustomRequest, res: Response) => {
  * @todo handle title validation if its more than 144 characters
  * this handles all types of links being created but I opted for separate endpoints to build the associations seems like an easy separation but also
  * I think we could handle the associations in this controller to just pass in the required parameters and build out a service layer to help with the business logic to handle that
+ * since I have structured it towards self referential association Parent -> Child Links
  */
 export const createLink = async (req: CustomRequest, res: Response) => {
   try {
